@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Pkg {
     @NotNull(message = "Number can not be empty")
-    @Pattern(regexp = "[0-9]", message = "Invalid mobile number")
+    @Pattern(regexp = "^\\d{9}$", message = "Invalid mobile number")
     private String number;
     @NotNull(message = "Amount can not be empty")
-    @Pattern(regexp = "[0-5]]", message = "Invalid amount")
+    @Pattern(regexp = "^\\d{3}$", message = "Invalid amount")
     private String amount;
 }

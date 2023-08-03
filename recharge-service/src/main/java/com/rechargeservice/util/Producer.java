@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class Producer {
 
     @Value("${topic.name}")
-    private String msgTopic;
+    private String topicName;
 
     private final ObjectMapper objectMapper;
     private final KafkaTemplate<String, String> kafkaTemplate;
@@ -23,7 +23,7 @@ public class Producer {
 
     public String sendMessage(Pkg pkg) throws JsonProcessingException {
         String rechargeMsg = objectMapper.writeValueAsString(pkg);
-        kafkaTemplate.send(msgTopic, rechargeMsg);
+        kafkaTemplate.send(topicName, rechargeMsg);
         return "SUCCESS";
     }
 
