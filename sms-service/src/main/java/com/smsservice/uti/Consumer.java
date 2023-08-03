@@ -12,7 +12,7 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class Consumer {
-    private static final String msgTopic = "${topic.name}";
+    private static final String topicName = "${topic.name}";
 
     private final MsgService msgService;
 
@@ -21,7 +21,7 @@ public class Consumer {
 
     private Pkg pkg;
 
-    @KafkaListener(topics = msgTopic)
+    @KafkaListener(topics = topicName)
     public void consumeMessage(String message) throws IOException {
         Pkg pkg = objectMapper.readValue(message, Pkg.class);
         msgService.sendMsg(pkg);

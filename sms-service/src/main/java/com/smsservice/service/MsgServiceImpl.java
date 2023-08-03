@@ -13,6 +13,6 @@ public class MsgServiceImpl implements MsgService {
     @Override
     public void sendMsg(Pkg pkg) {
         // send the msg -msg service
-        logger.info("account has been recharged of {}", pkg.getAmount());
+        logger.info("Your account {} have been recharged of {}", pkg.getNumber(), pkg.getAmount());
     }
 }
