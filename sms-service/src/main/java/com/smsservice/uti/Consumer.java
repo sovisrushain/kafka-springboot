@@ -19,8 +19,6 @@ public class Consumer {
     private final ObjectMapper objectMapper;
 
 
-    private Pkg pkg;
-
     @KafkaListener(topics = topicName)
     public void consumeMessage(String message) throws IOException {
         Pkg pkg = objectMapper.readValue(message, Pkg.class);
